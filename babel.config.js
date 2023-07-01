@@ -4,10 +4,22 @@ module.exports = {
         [
             'module-resolver',
             {
+                extensions: [
+                    '.ios.js',
+                    '.android.js',
+                    '.ios.jsx',
+                    '.android.jsx',
+                    '.js',
+                    '.jsx',
+                    '.json',
+                    '.ts',
+                    '.tsx'
+                ],
+
                 root: ['.'],
                 alias: {
-                    '@components': './src/components',
-                    '@styles': './src/styles'
+                    '@components': 'src/components',
+                    '@styles': 'src/styles'
                 }
             }
         ]
