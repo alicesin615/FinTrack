@@ -2,7 +2,8 @@ import { colors } from './colors';
 
 const lightColors = {
     ...colors,
-    background: 'eff6ff'
+    background: '#f1f5f9',
+    cardBackground: '#ffffff'
 };
 
 const darkColors = {
