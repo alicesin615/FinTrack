@@ -7,6 +7,12 @@ export const PrimaryText = styled.Text<TextProps>`
     font-weight: 500;
 `;
 
+export const CardTitleText = styled.Text<TextProps>`
+    color: ${({ theme }) => theme.colors.lightGray_2};
+    font-size: 16px;
+    font-weight: 500;
+`;
+
 // const styles = StyleSheet.create({
 //     base: { color: BLACK },
 //     H1: {
