@@ -1,18 +1,15 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { theme } from '@styles/theme';
-import { ScrollView, StyleSheet } from 'react-native';
-
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor: theme.light.colors.background
-    }
-});
+import { AppNavigator } from '@navigation/AppNavigator';
 
 function App(): JSX.Element {
     return (
         <ThemeProvider theme={theme.light}>
-            <ScrollView style={styles.container}></ScrollView>
+            <NavigationContainer>
+                <AppNavigator />
+            </NavigationContainer>
         </ThemeProvider>
     );
 }
