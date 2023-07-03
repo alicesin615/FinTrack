@@ -17,7 +17,7 @@ export function AppNavigator() {
                 }
             }}
         >
-            <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="Dashboard" component={Home} />
         </Stack.Navigator>
     );
 }
