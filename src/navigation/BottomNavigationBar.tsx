@@ -26,8 +26,8 @@ const PostNewRecordTab = ({ children, onPress }: TabScreenProps) => {
         >
             <View
                 style={{
-                    width: 48,
-                    height: 48,
+                    width: 60,
+                    height: 60,
                     borderRadius: 48,
                     backgroundColor: theme.colors.primary
                 }}
