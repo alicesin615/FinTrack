@@ -1,5 +1,6 @@
 import { Text, View, StyleSheet, TextInput } from 'react-native';
 import { PrimaryText } from '@components/Text';
+import { Input } from '@components/Input';
 
 export function Login() {
     return (
@@ -9,9 +10,12 @@ export function Login() {
             </PrimaryText>
             <View style={loginStyles.inputContainer}>
                 <PrimaryText>Email Address</PrimaryText>
-                <TextInput />
+                <Input />
             </View>
-            <PrimaryText>Password</PrimaryText>
+            <View style={loginStyles.inputContainer}>
+                <PrimaryText>Password</PrimaryText>
+                <Input />
+            </View>
         </View>
     );
 }
