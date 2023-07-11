@@ -21,7 +21,6 @@ public class UserController {
 
     @GetMapping
     public Optional<User> fetchUser(@PathVariable String userId) {
-        System.out.println("hello am i here");
         return userService.getUserById(userId);
     }
 
