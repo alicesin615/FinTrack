@@ -19,7 +19,7 @@ public class UserController {
 
     private final UserService userService;
 
-    @GetMapping
+    @GetMapping("{userId}")
     public Optional<User> fetchUser(@PathVariable String userId) {
         return userService.getUserById(userId);
     }
