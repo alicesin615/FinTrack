@@ -11,6 +11,7 @@ import com.fintrack.auth.AuthenticationResponse;
 import com.fintrack.auth.RegisterRequest;
 import com.fintrack.services.AuthenticationService;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -22,7 +23,7 @@ public class AuthenticationController {
 
         @PostMapping("/register")
         public ResponseEntity<AuthenticationResponse> register(
-                        @RequestBody RegisterRequest request) {
+                        @Valid @RequestBody RegisterRequest request) {
                 return ResponseEntity.ok(authenticationService.register(request));
 
         }
