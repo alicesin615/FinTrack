@@ -2,18 +2,24 @@ package com.fintrack.model;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Document
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class User implements UserDetails {
 
     @Id
@@ -21,13 +27,7 @@ public class User implements UserDetails {
     private String username;
     private String email;
     private String password;
-
-    public User(String id, String username, String email, String password) {
-        this.id = id;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-    }
+    private Date createdAt;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
