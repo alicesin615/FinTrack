@@ -9,6 +9,8 @@ import com.fintrack.model.User;
 
 public interface UserRepository extends MongoRepository<User, String> {
 
-    Optional<UserDetails> findByEmail(String username);
+    Optional<UserDetails> findByEmail(String email);
+
+    Boolean existsByEmail(String email);
 
 }
