@@ -13,9 +13,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ErrorResponse {
-    private HttpStatus status;
+    private Number status;
+    private HttpStatus error;
     private String message;
-    private String errorCode;
-    private String errorMessage;
     private LocalDateTime timestamp;
 }
