@@ -2,7 +2,7 @@ import { TextInput, StyleSheet, TextInputProps } from 'react-native';
 import styled from 'styled-components/native';
 
 const StyledInput = styled.TextInput`
-    border-color: ${({ theme }) => theme.colors.lightGray_2};
+    border-color: ${({ theme }) => theme.colors.lightGray3};
     border-width: 1px;
     background-color: ${({ theme }) => theme.colors.white};
     padding: 12px 16px;
