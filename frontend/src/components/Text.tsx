@@ -1,14 +1,18 @@
 import styled from 'styled-components/native';
 import { TextProps } from 'react-native';
+import { fonts, FontScale } from '@styles/fonts';
 
-export const PrimaryText = styled.Text<TextProps>`
-    color: ${({ theme }) => theme.colors.darkGray_1};
-    font-size: 24px;
+interface CustomTextProps extends TextProps {
+    scale?: FontScale;
+}
+export const PrimaryText = styled.Text<CustomTextProps>`
+    color: ${({ theme }) => theme.colors.darkGray2};
+    font-size: ${({ scale = 'base' }) => fonts?.[scale || 'large']?.fontSize};
     font-weight: 500;
 `;
 
 export const CardTitleText = styled.Text<TextProps>`
-    color: ${({ theme }) => theme.colors.lightGray_2};
+    color: ${({ theme }) => theme.colors.lightGray2};
     font-size: 16px;
     font-weight: 500;
 `;
