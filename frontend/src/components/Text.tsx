@@ -7,7 +7,7 @@ interface CustomTextProps extends TextProps {
 }
 export const PrimaryText = styled.Text<CustomTextProps>`
     color: ${({ theme }) => theme.colors.darkGray2};
-    font-size: ${({ scale = 'base' }) => fonts?.[scale || 'large']?.fontSize};
+    font-size: ${({ scale = 'base' }) => fonts?.[scale]?.fontSize};
     font-weight: 500;
 `;
 
