@@ -1,11 +1,20 @@
 import { Text, View, StyleSheet, TextInput } from 'react-native';
+import { useTheme } from 'styled-components/native';
 import { PrimaryText } from '@components/Text';
 import { Input } from '@components/Input';
 
 export function Login() {
+    const theme = useTheme();
+
     return (
         <View style={loginStyles.container}>
-            <PrimaryText style={{ fontWeight: '600', fontSize: 40 }}>
+            <PrimaryText
+                style={{
+                    fontWeight: '600',
+                    fontSize: 40,
+                    color: theme.colors.primary
+                }}
+            >
                 Log In
             </PrimaryText>
             <View style={loginStyles.inputContainer}>
@@ -25,23 +34,9 @@ const loginStyles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         gap: 24
-        // padding: 24,
-        // backgroundColor: '#eaeaea'
     },
     inputContainer: {
         flexDirection: 'column',
         gap: 12
-    },
-    title: {
-        marginTop: 16,
-        paddingVertical: 8,
-        borderWidth: 4,
-        borderColor: '#20232a',
-        borderRadius: 6,
-        backgroundColor: '#61dafb',
-        color: '#20232a',
-        textAlign: 'center',
-        fontSize: 30,
-        fontWeight: 'bold'
     }
 });
