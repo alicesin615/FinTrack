@@ -29,7 +29,7 @@ export const Button: React.FC<ButtonProps> = ({
     ...rest
 }) => {
     return (
-        <ButtonContainer styleType={styleType} {...rest}>
+        <ButtonContainer styleType={styleType} activeOpacity={0.6} {...rest}>
             <ButtonText styleType={styleType}>{children}</ButtonText>
         </ButtonContainer>
     );
