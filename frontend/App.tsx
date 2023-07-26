@@ -7,7 +7,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { theme } from '@styles/theme';
 import { BottomNavigationBar } from '@navigation/BottomNavigationBar';
 import { Login } from '@screens/Login';
-import { Register } from '@screens/Register';
+import Register from '@screens/Register';
 
 function App(): JSX.Element {
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
