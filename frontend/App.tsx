@@ -26,7 +26,8 @@ function App(): JSX.Element {
                                     backgroundColor:
                                         theme.light.colors.background,
                                     paddingHorizontal: 24,
-                                    paddingVertical: 100
+                                    paddingVertical: 100,
+                                    paddingBottom: 40
                                 }
                             }}
                         >
