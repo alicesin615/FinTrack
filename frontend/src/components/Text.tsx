@@ -11,6 +11,12 @@ export const PrimaryText = styled.Text<CustomTextProps>`
     font-weight: 500;
 `;
 
+export const MutedText = styled.Text<CustomTextProps>`
+    color: ${({ theme }) => theme.colors.lightGray2};
+    font-size: ${({ scale = 'small' }) => fonts?.[scale]?.fontSize};
+    font-weight: 400;
+`;
+
 export const CardTitleText = styled.Text<TextProps>`
     color: ${({ theme }) => theme.colors.lightGray2};
     font-size: 16px;
