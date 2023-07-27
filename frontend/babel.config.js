@@ -21,7 +21,8 @@ module.exports = {
                     '@components': 'src/components',
                     '@navigation': 'src/navigation',
                     '@screens': 'src/screens',
-                    '@styles': 'src/styles'
+                    '@styles': 'src/styles',
+                    '@models': 'src/models'
                 }
             }
         ]
