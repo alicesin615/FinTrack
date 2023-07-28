@@ -22,7 +22,8 @@ module.exports = {
                     '@navigation': 'src/navigation',
                     '@screens': 'src/screens',
                     '@styles': 'src/styles',
-                    '@models': 'src/models'
+                    '@models': 'src/models',
+                    '@api': 'src/api'
                 }
             }
         ]
