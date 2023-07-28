@@ -1,8 +1,11 @@
 // reducers/index.ts
 import { combineReducers } from 'redux';
-import { registerSlice } from './authentication';
+import { reducer as formReducer } from 'redux-form';
+import { register } from '@api/index';
+
 const rootReducer = combineReducers({
-    register: registerSlice
+    [register.reducerPath]: register.reducer,
+    form: formReducer
 });
 
 export default rootReducer;
