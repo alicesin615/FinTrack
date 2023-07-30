@@ -1,5 +1,6 @@
-import { TextInput, StyleSheet, TextInputProps } from 'react-native';
+import { View } from 'react-native';
 import styled from 'styled-components/native';
+import { WrappedFieldProps } from 'redux-form';
 
 const StyledInput = styled.TextInput`
     border-color: ${({ theme }) => theme.colors.lightGray3};
@@ -10,11 +11,19 @@ const StyledInput = styled.TextInput`
     height: 52px;
     font-size: 16px;
 `;
-
-interface InputProps extends TextInputProps {
-    style?: object;
+interface InputProps extends WrappedFieldProps {
+    type?: 'text' | 'password' | 'number';
 }
-
-export const Input = ({ style, ...rest }: InputProps) => {
-    return <StyledInput style={style} {...rest} />;
+export const Input = (props?: InputProps) => {
+    return (
+        <View>
+            <StyledInput
+                value={props?.input.value}
+                onChangeText={props?.input.onChange}
+                onBlur={props?.input.onBlur}
+                secureTextEntry={props?.type === 'password'}
+                {...props}
+            />
+        </View>
+    );
 };
