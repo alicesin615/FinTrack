@@ -1,11 +1,13 @@
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { Field, reduxForm, InjectedFormProps } from 'redux-form';
+import Toast from 'react-native-toast-message';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '@models/navigation.model';
 import { useTheme } from 'styled-components/native';
 import { useNavigation } from '@react-navigation/native';
 import { useRegisterMutation } from '@api/register';
 import { RegisterRequestParams } from '@models/apiRequest.model';
+import { ApiErrorResonse } from '@models/apiResponse.model';
 import { PrimaryText, MutedText } from '@components/Text';
 import { Button } from '@components/Button';
 import { Input } from '@components/Input';
@@ -14,13 +16,28 @@ interface RegisterFormProps extends InjectedFormProps {}
 function Register({ handleSubmit, submitting }: RegisterFormProps) {
     const theme = useTheme();
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
-    const [register, response] = useRegisterMutation();
+    const [register, { data, isLoading: isRegistering, error }] =
+        useRegisterMutation();
 
     const onSubmit = (values: RegisterRequestParams | {}) => {
         if (!submitting) {
-            register(values);
+            register(values)
+                .unwrap()
+                .then((payload) => {
+                    Toast.show({
+                        type: 'success',
+                        text1: 'Successfully Registered'
+                    });
+                })
+                .catch((error: ApiErrorResonse) => {
+                    Toast.show({
+                        type: 'error',
+                        text1: error?.data?.message
+                    });
+                });
         }
     };
+
     return (
         <View style={registerStyles.container}>
             <PrimaryText style={{ fontWeight: '600', fontSize: 40 }}>
