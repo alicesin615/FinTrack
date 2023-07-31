@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components/native';
+import Toast from 'react-native-toast-message';
 import { store } from './src/store';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -8,6 +9,7 @@ import { theme } from '@styles/theme';
 import { BottomNavigationBar } from '@navigation/BottomNavigationBar';
 import { Login } from '@screens/Login';
 import Register from '@screens/Register';
+import { toastConfig } from '@components/Toasts';
 
 function App(): JSX.Element {
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
@@ -48,6 +50,7 @@ function App(): JSX.Element {
                         </Stack.Navigator>
                     )}
                 </NavigationContainer>
+                <Toast config={toastConfig} />
             </ThemeProvider>
         </Provider>
     );
