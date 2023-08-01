@@ -7,8 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { theme } from '@styles/theme';
 import { BottomNavigationBar } from '@navigation/BottomNavigationBar';
-import { Login } from '@screens/Login';
-import Register from '@screens/Register';
+import { Login, Register } from '@screens/Authentication';
 import { toastConfig } from '@components/Toasts';
 
 function App(): JSX.Element {
