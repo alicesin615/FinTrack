@@ -1,13 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import rootReducer from './reducers';
-import { register } from '@api/index';
+import { register, login } from '@api/index';
 
 export const store = configureStore({
     reducer: rootReducer,
     devTools: process.env.NODE_ENV === 'development',
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware({}).concat([register.middleware])
+        getDefaultMiddleware({}).concat([register.middleware, login.middleware])
 });
 
 export type RootState = ReturnType<typeof store.getState>;
