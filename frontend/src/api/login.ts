@@ -1,9 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { RegisterRequestParams } from '@models/apiRequest.model';
+import { LoginRequestParams } from '@models/apiRequest.model';
 interface LoginResponse {
     accessToken: string;
     refreshToken: string;
 }
+
 export const login = createApi({
     reducerPath: 'login',
     baseQuery: fetchBaseQuery({
@@ -11,9 +12,9 @@ export const login = createApi({
     }),
 
     endpoints: (builder) => ({
-        login: builder.mutation<LoginResponse, RegisterRequestParams | {}>({
+        login: builder.mutation<LoginResponse, LoginRequestParams | {}>({
             query: (apiParams) => ({
-                url: '/auth/login',
+                url: '/auth/authenticate',
                 method: 'POST',
                 body: apiParams
             })
