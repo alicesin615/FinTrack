@@ -13,11 +13,13 @@ import { useLoginMutation } from '@api/login';
 import { LoginRequestParams } from '@models/apiRequest.model';
 import Toast from 'react-native-toast-message';
 import { ApiErrorResonse } from '@models/apiResponse.model';
+import { useGetLoggedinUserQuery } from '@api/user';
 
 function Login({ handleSubmit, submitting }: InjectedFormProps) {
     const theme = useTheme();
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
     const [login] = useLoginMutation();
+    const { data, isLoading, error } = useGetLoggedinUserQuery();
 
     const onSubmit = async (values: LoginRequestParams) => {
         const test = await Keychain.getGenericPassword();
@@ -25,6 +27,8 @@ function Login({ handleSubmit, submitting }: InjectedFormProps) {
             .unwrap()
             .then(async (payload) => {
                 console.log('payload', payload);
+                const accessToken = payload?.accessToken;
+                await Keychain.setGenericPassword('access_token', accessToken);
                 Toast.show({
                     type: 'success',
                     text1: 'Successful Login'
