@@ -26,7 +26,6 @@ function Login({ handleSubmit, submitting }: InjectedFormProps) {
         login(values)
             .unwrap()
             .then(async (payload) => {
-                console.log('payload', payload);
                 const accessToken = payload?.accessToken;
                 await Keychain.setGenericPassword('access_token', accessToken);
                 Toast.show({
@@ -35,7 +34,6 @@ function Login({ handleSubmit, submitting }: InjectedFormProps) {
                 });
             })
             .catch((error: ApiErrorResonse) => {
-                console.log('error here', error);
                 Toast.show({
                     type: 'error',
                     text1: error?.data?.message

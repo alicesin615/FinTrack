@@ -26,13 +26,11 @@ function Register({ handleSubmit, submitting }: RegisterFormProps) {
             register(values)
                 .unwrap()
                 .then(async (payload) => {
-                    console.log('payload', payload);
                     try {
                         const credentials = await Keychain.setGenericPassword(
                             values?.username,
                             payload?.accessToken
                         );
-                        console.log('credentials here', credentials);
                     } catch (error) {
                         console.log("Keychain couldn't be access", error);
                     }
