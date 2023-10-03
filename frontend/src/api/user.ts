@@ -5,10 +5,11 @@ const prepareHeaders = (headers: Headers, { getState }) => {
     // Get the access token from the Redux store
     const state = getState();
     const accessToken = state.login?.data?.accessToken;
-    console.log('access token in prepare headers', state.login);
-
     // Add the access token to the Authorization header
-    headers.set('Authorization', `Bearer ${accessToken}`);
+    if (accessToken) {
+        headers.set('Authorization', `Bearer ${accessToken}`);
+    }
+    return;
 };
 
 export const user = createApi({
