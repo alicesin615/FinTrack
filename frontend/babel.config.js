@@ -23,7 +23,8 @@ module.exports = {
                     '@screens': 'src/screens',
                     '@styles': 'src/styles',
                     '@models': 'src/models',
-                    '@api': 'src/api'
+                    '@api': 'src/api',
+                    '@reducers': 'src/reducers'
                 }
             }
         ]
