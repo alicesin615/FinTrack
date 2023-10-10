@@ -41,7 +41,10 @@ export function BottomNavigationBar() {
     const theme = useTheme();
 
     return (
-        <Tab.Navigator screenOptions={{ tabBarShowLabel: false }}>
+        <Tab.Navigator
+            screenOptions={{ tabBarShowLabel: false }}
+            initialRouteName="Dashboard"
+        >
             <Tab.Screen
                 name="Dashboard"
                 component={Home}
