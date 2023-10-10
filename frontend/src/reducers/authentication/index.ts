@@ -1,2 +1,1 @@
-export { default as registerSlice } from './registerSlice';
-export { default as keychainSlice } from './keychainSlice';
+export { default as keychainReducer } from './keychainSlice';
