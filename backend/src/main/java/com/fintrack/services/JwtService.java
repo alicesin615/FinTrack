@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import com.fintrack.utils.Log;
+
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -21,6 +23,10 @@ public class JwtService {
 
     @Value("${application.security.jwt.secret-key}")
     private String secretKey;
+
+    @Value("${application.security.jwt.token-expiration}")
+    private long jwtExpiration;
+
     private long refreshExpiration;
 
     public String extractUsername(String token) {
@@ -28,7 +34,7 @@ public class JwtService {
     }
 
     public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
-        final Claims claims = extractAllClaims(token);
+        final Claims claims = extractAllClaims(token); // jwt info e.g. subject (user), expiration time, issuer etc
         return claimsResolver.apply(claims);
     }
 
@@ -39,7 +45,7 @@ public class JwtService {
     public String generateToken(Map<String, Object> extractClaims, UserDetails userDetails) {
         return Jwts.builder().setClaims(extractClaims).setSubject(userDetails.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 24))
+                .setExpiration(new Date(System.currentTimeMillis() + jwtExpiration))
                 .signWith(getSigningKey(), SignatureAlgorithm.HS256).compact();
     }
 
