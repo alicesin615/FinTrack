@@ -16,19 +16,31 @@ export function AppNavigator() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        Keychain.getGenericPassword().then((credentials) => {
-            if (credentials) {
-                setIsLoggedIn(true);
-            } else {
-                setIsLoggedIn(false);
-            }
-        });
+        try {
+            Keychain.getGenericPassword().then((credentials) => {
+                if (credentials) {
+                    setIsLoggedIn(true);
+                } else {
+                    setIsLoggedIn(false);
+                }
+            });
+        } catch (error) {
+            console.log('Keychain could not be accessed');
+        }
     }, [dispatch]);
 
     return (
         <NavigationContainer>
             {isLoggedIn ? (
-                <BottomNavigationBar />
+                <Stack.Navigator initialRouteName="Root">
+                    <Stack.Screen
+                        name="Root"
+                        component={BottomNavigationBar}
+                        options={{
+                            headerShown: false
+                        }}
+                    />
+                </Stack.Navigator>
             ) : (
                 <Stack.Navigator
                     initialRouteName="Register"
