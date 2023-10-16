@@ -22,7 +22,6 @@ function Login({ handleSubmit, submitting }: InjectedFormProps) {
     const { data, isLoading, error } = useGetLoggedinUserQuery();
 
     const onSubmit = async (values: LoginRequestParams) => {
-        const test = await Keychain.getGenericPassword();
         login(values)
             .unwrap()
             .then(async (payload) => {
@@ -32,6 +31,7 @@ function Login({ handleSubmit, submitting }: InjectedFormProps) {
                     type: 'success',
                     text1: 'Successful Login'
                 });
+                navigation.navigate('Root');
             })
             .catch((error: ApiErrorResonse) => {
                 Toast.show({
