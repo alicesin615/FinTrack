@@ -24,7 +24,8 @@ module.exports = {
                     '@styles': 'src/styles',
                     '@models': 'src/models',
                     '@api': 'src/api',
-                    '@reducers': 'src/reducers'
+                    '@reducers': 'src/reducers',
+                    '@constants': 'src/constants'
                 }
             }
         ]
