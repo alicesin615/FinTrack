@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { User } from '@models/user.model';
+import { BASE_URL } from '@constants/apiConstants';
 
 const prepareHeaders = (headers: Headers, { getState }) => {
     // Get the access token from the Redux store
@@ -15,7 +16,7 @@ const prepareHeaders = (headers: Headers, { getState }) => {
 export const user = createApi({
     reducerPath: 'user',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://localhost:8080/api/v1',
+        baseUrl: BASE_URL,
         prepareHeaders
     }),
 
