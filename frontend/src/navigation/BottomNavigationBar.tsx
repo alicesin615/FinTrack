@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Home, Transactions } from '@screens/index';
+import { Dashboard, Transactions } from '@screens/index';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
@@ -47,7 +47,7 @@ export function BottomNavigationBar() {
         >
             <Tab.Screen
                 name="Dashboard"
-                component={Home}
+                component={Dashboard}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <View>

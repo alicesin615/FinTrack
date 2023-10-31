@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Home } from '@screens/Home';
+import { Dashboard } from '@screens/Dashboard';
 import { useTheme } from 'styled-components/native';
 
 const Stack = createStackNavigator();
@@ -17,7 +17,7 @@ export function PublicNavigator() {
                 }
             }}
         >
-            <Stack.Screen name="Dashboard" component={Home} />
+            <Stack.Screen name="Dashboard" component={Dashboard} />
         </Stack.Navigator>
     );
 }
